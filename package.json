@@ -1,0 +1,23 @@
+{
+  "name": "enforce-governance-gitaction",
+  "version": "1.0.0",
+  "description": "This is a nodeJS project to enforce salesforce governance for declarative and programatic automation best practices",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/satishkc/enforce-governance-gitaction.git"
+  },
+  "author": "Satish Chandrashekar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/satishkc/enforce-governance-gitaction/issues"
+  },
+  "homepage": "https://github.com/satishkc/enforce-governance-gitaction#readme",
+  "dependencies": {
+    "@actions/core": "^1.7.0",
+    "@actions/github": "^5.0.1"
+  }
+}

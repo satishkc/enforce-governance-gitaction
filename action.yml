@@ -1,0 +1,6 @@
+name: "Enforce Governance Git Action"
+description: "This is the github action"
+runs:
+  using: node12
+  main: index.js
+  
