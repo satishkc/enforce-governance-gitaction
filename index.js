@@ -12,13 +12,13 @@ const path = require('path');
             console.log(`Hello ${gname}`);
             const stdpath = './force-app/main/default/';
 
-            const objects = path.join(__dirname, 'Objects');
+            const objects = './force-app/main/default/Objects';
             const flows = path.join(stdpath, 'Flows');
 
             console.log("Listing the Custom Objects");
             console.log(objects);
             console.log(flows);
-            /* fs.readdir(objects, (err, files) => {
+            fs.readdir(objects, (err, files) => {
                 if (err) {
                     return console.log('Unable to Scan Directory or Not Directory Fouund' + err);
                 }
@@ -27,7 +27,7 @@ const path = require('path');
                 })
             })
 
-            console.log("Listing the flows");
+            /*console.log("Listing the flows");
             fs.readdir(flows, (err, flows) => {
                 console.log(flows.length);
                 if (err) {
