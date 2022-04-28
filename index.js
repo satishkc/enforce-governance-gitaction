@@ -23,8 +23,8 @@ const path = require('path');
                 }
                 files.forEach(function(file) {
                     console.log(file);
-                });
-            });
+                })
+            })
 
             console.log("Listing the flows");
             fs.readdir(flows, (err, flows) => {
