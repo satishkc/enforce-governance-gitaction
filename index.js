@@ -17,7 +17,6 @@ const path = require('path');
 
             console.log("Listing the Custom Objects");
             fs.readdir(objects, (err, files) => {
-                console.log(files.length);
                 if (err) {
                     return console.log('Unable to Scan Directory or Not Directory Fouund' + err);
                 }
