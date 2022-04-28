@@ -9,8 +9,8 @@ const fs = require('fs');
             core.notice("skc testing action");
             const gname = core.getInput('greeting-name');
             console.log(`Hello + ${gname}`);
-            const time = (new Date().toTimeString);
-            core.setOutput("time", time);
+            //const time = (new Date().toTimeString);
+            //core.setOutput("time", time);
             //const payload = JSON.stringify(github.context.payload, undefined, 2);
             //console.log(`The Event Payload is : ${payload}`);
         } catch (error) {
