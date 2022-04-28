@@ -11,8 +11,8 @@ const fs = require('fs');
             console.log(`Hello + ${gname}`);
             const time = (new Date().toTimeString);
             core.setOutput("time", time);
-            const payload = JSON.stringify(github.context.payload, undefined, 2);
-            console.log(`The Event Payload is : ${payload}`);
+            //const payload = JSON.stringify(github.context.payload, undefined, 2);
+            //console.log(`The Event Payload is : ${payload}`);
         } catch (error) {
             core.setFailed(error.message);
         }
