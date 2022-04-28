@@ -10,7 +10,7 @@ const path = require('path');
             core.notice("skc testing action");
             const gname = core.getInput('greeting-name');
             console.log(`Hello ${gname}`);
-            const stdpath = './force-app/main/default/';
+            const stdpath = '/force-app/main/default/';
 
             const objects = path.join(stdpath, 'Objects');
             const flows = path.join(stdpath, 'Flows');
