@@ -10,7 +10,7 @@ const path = require('path');
             core.notice("skc testing action");
             const gname = core.getInput('greeting-name');
             console.log(`Hello ${gname}`);
-            const stdpath = '/force-app/main/default/';
+            const stdpath = './force-app/main/default/';
 
             const objects = path.join(stdpath, 'Objects');
             const flows = path.join(stdpath, 'Flows');
@@ -18,7 +18,7 @@ const path = require('path');
             console.log("Listing the Custom Objects");
             console.log(objects);
             console.log(flows);
-            fs.readdir(objects, (err, files) => {
+            /* fs.readdir(objects, (err, files) => {
                 if (err) {
                     return console.log('Unable to Scan Directory or Not Directory Fouund' + err);
                 }
@@ -36,7 +36,7 @@ const path = require('path');
                 flows.forEach(function(flow) {
                     console.log(flow);
                 });
-            });
+            });*/
 
         } catch (error) {
             core.setFailed(error.message);
