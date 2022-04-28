@@ -1,6 +1,7 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 const fs = require('fs');
+const path = require('path');
 
 
 (
@@ -16,6 +17,12 @@ const fs = require('fs');
             const objects = "./force-app/main/default/objects";
             fs.readdir(objects, (err, files) => {
                 console.log(files.length);
+                if (err) {
+                    return console.log('Unable to Scan Directory or Not Directory Fouund' + err);
+                }
+                files.forEach(function(file) {
+                    console.log(file);
+                })
             })
 
         } catch (error) {
