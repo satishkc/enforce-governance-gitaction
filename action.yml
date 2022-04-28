@@ -1,13 +1,13 @@
 name: "Enforce Governance Git Action"
 description: "This is the github action"
 inputs:
-  greeting-name: # Name of the person to greet
-  description: "Whom to Greet"
-  required: true
-  default: 'SKC'
+  greeting-name:
+    description: "Name Variable"
+    required: true
+    default: 'SKC'
 outputs:
   time: # Id of the output
-  description: 'This is the time we greeted you'
+    description: 'This is the time we greeted you'
 runs:
   using: 'node12'
   main: 'index.js'
