@@ -16,6 +16,8 @@ const path = require('path');
             const flows = path.join(stdpath, 'Flows');
 
             console.log("Listing the Custom Objects");
+            console.log(objects);
+            console.log(flows);
             fs.readdir(objects, (err, files) => {
                 if (err) {
                     return console.log('Unable to Scan Directory or Not Directory Fouund' + err);
