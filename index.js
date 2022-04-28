@@ -12,7 +12,7 @@ const path = require('path');
             console.log(`Hello ${gname}`);
             const stdpath = './force-app/main/default/';
 
-            const objects = path.join(stdpath, 'Objects');
+            const objects = path.join(__dirname, 'Objects');
             const flows = path.join(stdpath, 'Flows');
 
             console.log("Listing the Custom Objects");
