@@ -8,11 +8,16 @@ const fs = require('fs');
         try {
             core.notice("skc testing action");
             const gname = core.getInput('greeting-name');
-            console.log(`Hello + ${gname}`);
+            console.log(`Hello ${gname}`);
             //const time = (new Date().toTimeString);
             //core.setOutput("time", time);
             //const payload = JSON.stringify(github.context.payload, undefined, 2);
             //console.log(`The Event Payload is : ${payload}`);
+            const objects = "./force-app/main/default/objects";
+            fs.readdir(objects, (err, files) => {
+                console.log(files.length);
+            })
+
         } catch (error) {
             core.setFailed(error.message);
         }

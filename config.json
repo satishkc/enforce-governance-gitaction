@@ -1,0 +1,71 @@
+{
+    "records": [{
+            "category": "Data Model",
+            "rules": [{
+                    "rulename": "Custom Prefix",
+                    "description": "This is the prefix used for all customizations (doesn't include manage package namespace prefixes or custom namespaces), This will be checked against all the custom objects, fields and class / trigger API names created as part of the project",
+                    "applicable_to": "All",
+                    "value": "skc",
+                    "active": true,
+                    "bypass": false
+                },
+                {
+                    "rulename": "Ignore Namespace",
+                    "description": "List the namespace prefxes that needs to be ignored",
+                    "applicable_to": "Managed Package",
+                    "value": "SBQQ,trlhdtips,sf_com_apps",
+                    "active": true,
+                    "bypass": false
+                }
+            ]
+        },
+        {
+            "category": "Automation",
+            "rules": [{
+                    "rulename": "Avoid Workflows",
+                    "description": "Workflows are being sunset, need to migrate them to flows",
+                    "applicable_to": "All",
+                    "value": "",
+                    "active": true,
+                    "bypass": false
+                },
+                {
+                    "rulename": "Avoid Process Builders",
+                    "description": "Process Builders are being sunset, need to migrate them to flows",
+                    "applicable_to": "All",
+                    "value": "",
+                    "active": true,
+                    "bypass": false
+                },
+                {
+                    "rulename": "Flow Hard Coded Ids",
+                    "description": "Hard Coded Ids in Flows",
+                    "applicable_to": "All",
+                    "value": "",
+                    "active": true,
+                    "bypass": false
+                }
+            ]
+        },
+        {
+            "category": "Performance",
+            "rules": [{
+                    "rulename": "Record Trigger Flow",
+                    "description": "One Flow per Object per Event",
+                    "applicable_to": "All",
+                    "value": "",
+                    "active": true,
+                    "bypass": false
+                },
+                {
+                    "rulename": "Record Trigger Automation ",
+                    "description": "Uses the Record Triggered Automation Table here as Guide to define the outlyers ",
+                    "applicable_to": "All",
+                    "value": "",
+                    "active": true,
+                    "bypass": false
+                }
+            ]
+        }
+    ]
+}
