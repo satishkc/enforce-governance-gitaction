@@ -10,11 +10,12 @@ const path = require('path');
             core.notice("skc testing action");
             const gname = core.getInput('greeting-name');
             console.log(`Hello ${gname}`);
-            //const time = (new Date().toTimeString);
-            //core.setOutput("time", time);
-            //const payload = JSON.stringify(github.context.payload, undefined, 2);
-            //console.log(`The Event Payload is : ${payload}`);
-            const objects = "./force-app/main/default/objects";
+            const stdpath = './force-app/main/default/';
+
+            const objects = path.join(stdpath, 'Objects');
+            const flows = path.join(stdpath, 'Flows');
+
+            console.log("Listing the Custom Objects");
             fs.readdir(objects, (err, files) => {
                 console.log(files.length);
                 if (err) {
@@ -22,8 +23,19 @@ const path = require('path');
                 }
                 files.forEach(function(file) {
                     console.log(file);
-                })
-            })
+                });
+            });
+
+            console.log("Listing the flows");
+            fs.readdir(flows, (err, flows) => {
+                console.log(flows.length);
+                if (err) {
+                    return console.log("No flows returned" + err);
+                }
+                flows.forEach(function(flow) {
+                    console.log(flow);
+                });
+            });
 
         } catch (error) {
             core.setFailed(error.message);
