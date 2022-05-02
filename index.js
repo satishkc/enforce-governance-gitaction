@@ -21,7 +21,7 @@ async function checkConfigFile(filePath) {
 (
     async() => {
         try {
-            checkConfigFile("Config.JSON");
+            checkConfigFile("config.json");
         } catch (error) {
             core.setFailed(error.message);
         }
