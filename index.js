@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 var ruleset;
+const parsedruleset = [];
 
 //Function to check if a specific File Exists
 async function checkConfigFile(filePath) {
@@ -18,9 +19,20 @@ async function checkConfigFile(filePath) {
 
                 //Seperate the rules by Category
                 for (const [key, value] of Object.entries(ruleset)) {
-                    core.info(JSON.stringify(key));
-                    core.info(JSON.stringify(value));
+                    //core.info(JSON.stringify(key));
+                    //core.info(JSON.stringify(value));
+                    parsedruleset.push(value);
                 }
+                for (var i = 0; i < parsedruleset.length; i++) {
+                    var tval = parsedruleset[i];
+                    core.info(tval);
+                    var tpar = JSON.parse(tval);
+                    for (const [key, value] of Object.entries(tpar)) {
+                        core.info(key);
+                        core.info(JSON.stringify(value));
+                    }
+                }
+
             })
             return true;
         })
