@@ -10,6 +10,14 @@ async function checkConfigFile(filePath) {
     return fs.promises.access(filePath)
         .then(() => {
             core.info(`File ${filePath} exists, proceeding with next steps`);
+            //read the config file.
+            fs.readFileSync(filePath, (err, data) => {
+                    if (err) {
+                        core.info(`can't read the file ${err}`);
+                    }
+                    console.log(data);
+                })
+                // Call other functions to read / Execute other Rules.
             return true;
         })
         .catch(() => {
@@ -18,15 +26,18 @@ async function checkConfigFile(filePath) {
         })
 }
 
+
 (
     async() => {
         try {
-            checkConfigFile("config.json");
+            checkConfigFile("sfbp.config.json");
         } catch (error) {
             core.setFailed(error.message);
         }
     }
 )
+
+
 
 /*
 // Function to read the metadata from the Repo / Branch
