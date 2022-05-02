@@ -25,9 +25,12 @@ async function checkConfigFile(filePath) {
                 }
                 for (var i = 0; i < parsedruleset.length; i++) {
                     var tval = parsedruleset[i];
-                    core.info(tval);
                     var tpar = JSON.stringify(tval);
                     core.info(tpar);
+                    for (const [key, value] of Object.entries(tpar)) {
+                        core.info(JSON.stringify(key));
+                        core.info(JSON.stringify(value));
+                    }
                 }
 
             })
