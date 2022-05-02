@@ -10,12 +10,12 @@ async function checkConfigFile(filePath) {
     return fs.promises.access(filePath)
         .then(() => {
             core.info(`File ${filePath} exists, proceeding with next steps`);
-            const tfile = "./" + filePath;
+            const tfile = "/" + filePath;
             const tfile1 = `./${filePath}`;
             core.info(tfile);
             core.info(tfile1);
             //read the config file.
-            fs.readFileSync(tfile1, (err, data) => {
+            fs.readFileSync(tfile, (err, data) => {
                     if (err) {
                         core.info(`can't read the file ${err}`);
                     }
