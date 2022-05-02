@@ -14,7 +14,7 @@ async function checkConfigFile(filePath) {
             const tfile1 = `./${filePath}`;
             core.info(tfile);
             core.info(tfile1);
-            const fileread = fs.promises.readFile(filePath);
+            const fileread = fs.promises.readFile(tfile1);
             core.info(JSON.stringify(fileread));
             // Call other functions to read / Execute other Rules.
             return true;
