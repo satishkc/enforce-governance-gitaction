@@ -24,6 +24,7 @@ async function checkConfigFile(filePath) {
                     //core.info(JSON.stringify(value));
                     rs.push(value);
                     core.info('This is the new message');
+                    core.info(JSON.stringify(rs));
                 }
             })
             return true;
