@@ -28,8 +28,8 @@ async function checkConfigFile(filePath) {
                     var tpar = JSON.stringify(tval);
                     core.info(tpar);
                     for (const [key, value] of Object.entries(tpar)) {
-                        core.info(JSON.stringify(key));
-                        core.info(JSON.stringify(value));
+                        core.info(key);
+                        core.info(value);
                     }
                 }
 
