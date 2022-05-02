@@ -17,22 +17,14 @@ async function checkConfigFile(filePath) {
                 ruleset = JSON.parse(data).records;
                 //core.info(JSON.stringify(ruleset));
 
+                var rs = [];
                 //Seperate the rules by Category
                 for (const [key, value] of Object.entries(ruleset)) {
                     //core.info(JSON.stringify(key));
                     //core.info(JSON.stringify(value));
-                    parsedruleset.push(value);
+                    rs.push(value);
+                    core.info('This is the new message');
                 }
-                for (var i = 0; i < parsedruleset.length; i++) {
-                    var tval = parsedruleset[i];
-                    var tpar = JSON.stringify(tval);
-                    core.info(tpar);
-                    for (const [key, value] of Object.entries(tval)) {
-                        core.info(JSON.stringify(key));
-                        core.info(JSON.stringify(value));
-                    }
-                }
-
             })
             return true;
         })
