@@ -4,6 +4,32 @@ const fs = require('fs');
 const path = require('path');
 
 
+
+//Function to check if a specific File Exists
+async function checkConfigFile(filePath) {
+    return fs.promises.access(filePath)
+        .then(() => {
+            core.info(`File ${filePath} exists, proceeding with next steps`);
+            return true;
+        })
+        .catch(() => {
+            core.setFailed(`No Config File found at ${filePath} which is Mandatory`);
+            return false;
+        })
+}
+
+(
+    async() => {
+        try {
+            checkConfigFile("Config.JSON");
+        } catch (error) {
+            core.setFailed(error.message);
+        }
+    }
+)
+
+/*
+// Function to read the metadata from the Repo / Branch
 (
     async() => {
         try {
@@ -39,4 +65,6 @@ const path = require('path');
             core.setFailed(error.message);
         }
     }
-)();
+)*/
+
+();
