@@ -15,7 +15,7 @@ async function checkConfigFile(filePath) {
                 if (err) { core.setFailed(`Error Reading JSON file`) }
                 //core.info(data);
                 ruleset = JSON.parse(data).records;
-                core.info(ruleset);
+                core.info(JSON.stringify(ruleset));
             })
             return true;
         })
