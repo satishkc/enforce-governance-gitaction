@@ -10,13 +10,11 @@ async function checkConfigFile(filePath) {
     return fs.promises.access(filePath)
         .then(() => {
             core.info(`File ${filePath} exists, proceeding with next steps`);
-            const tfile = "/" + filePath;
-            const tfile1 = `./${filePath}`;
-            core.info(tfile);
-            core.info(tfile1);
-            const fileread = fs.promises.readFile(tfile1);
-            core.info(JSON.stringify(fileread));
-            // Call other functions to read / Execute other Rules.
+            fs.readFile(filePath, 'utf-8', (err, data) => {
+                    if (err) { core.setFailed(`Error Reading JSON file`) }
+                    core.info(data);
+                })
+                // Call other functions to read / Execute other Rules.
             return true;
         })
         .catch(() => {
