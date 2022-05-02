@@ -14,14 +14,9 @@ async function checkConfigFile(filePath) {
             const tfile1 = `./${filePath}`;
             core.info(tfile);
             core.info(tfile1);
-            //read the config file.
-            fs.readFileSync(tfile, (err, data) => {
-                    if (err) {
-                        core.info(`can't read the file ${err}`);
-                    }
-                    core.info(data);
-                })
-                // Call other functions to read / Execute other Rules.
+            fs.promises.readFile(filePath);
+            await promises;
+            // Call other functions to read / Execute other Rules.
             return true;
         })
         .catch(() => {
