@@ -15,7 +15,7 @@ async function checkConfigFile(filePath) {
             fs.readFile(filePath, 'utf-8', (err, data) => {
                 if (err) { core.setFailed(`Error Reading JSON file`) }
                 ruleset = JSON.parse(data).records;
-                core.info(JSON.stringify(ruleset));
+                //core.info(JSON.stringify(ruleset));
 
                 //Seperate the rules by Category
                 for (const [key, value] of Object.entries(ruleset)) {
@@ -26,11 +26,8 @@ async function checkConfigFile(filePath) {
                 for (var i = 0; i < parsedruleset.length; i++) {
                     var tval = parsedruleset[i];
                     core.info(tval);
-                    var tpar = JSON.parse(tval);
-                    for (const [key, value] of Object.entries(tpar)) {
-                        core.info(key);
-                        core.info(JSON.stringify(value));
-                    }
+                    var tpar = JSON.stringify(tval);
+                    core.info(tpar);
                 }
 
             })
