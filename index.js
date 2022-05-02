@@ -13,7 +13,7 @@ async function checkConfigFile(filePath) {
             // Call other functions to read / Execute other Rules.
             fs.readFile(filePath, 'utf-8', (err, data) => {
                 if (err) { core.setFailed(`Error Reading JSON file`) }
-                ruleset = data.records;
+                ruleset = data.split("category");
                 core.info(ruleset);
             })
             return true;
