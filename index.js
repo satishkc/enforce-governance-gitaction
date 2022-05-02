@@ -4,7 +4,12 @@ const fs = require('fs');
 const path = require('path');
 
 var ruleset;
-const parsedruleset = [];
+const datamodel = [];
+const dataquality = [];
+const automation = [];
+const performance = [];
+
+
 
 //Function to check if a specific File Exists
 async function checkConfigFile(filePath) {
@@ -20,11 +25,14 @@ async function checkConfigFile(filePath) {
                 var rs = [];
                 //Seperate the rules by Category
                 for (const [key, value] of Object.entries(ruleset)) {
-                    //core.info(JSON.stringify(key));
-                    //core.info(JSON.stringify(value));
                     rs.push(value);
-                    core.info(`This is the new message ${rs.length}`);
-                    core.info(JSON.stringify(rs));
+                }
+                core.info(`This is the new message ${rs.length}`);
+                core.info(JSON.stringify(rs));
+                for (var i = 0; i < rs.length; i++) {
+                    var tval = rs[i];
+                    core.info(tval.rules);
+
                 }
             })
             return true;
