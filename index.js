@@ -30,7 +30,7 @@ async function checkConfigFile(filePath) {
 (
     async() => {
         try {
-            checkConfigFile("sfbp.config.json");
+            checkConfigFile("sfbp_config.json");
         } catch (error) {
             core.setFailed(error.message);
         }
