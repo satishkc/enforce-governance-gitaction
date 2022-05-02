@@ -23,7 +23,7 @@ async function checkConfigFile(filePath) {
                     //core.info(JSON.stringify(key));
                     //core.info(JSON.stringify(value));
                     rs.push(value);
-                    core.info('This is the new message');
+                    core.info(`This is the new message ${rs.length}`);
                     core.info(JSON.stringify(rs));
                 }
             })
