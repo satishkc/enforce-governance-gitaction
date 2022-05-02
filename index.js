@@ -3,7 +3,7 @@ const github = require('@actions/github');
 const fs = require('fs');
 const path = require('path');
 
-const ruleset = [];
+var ruleset;
 
 //Function to check if a specific File Exists
 async function checkConfigFile(filePath) {
@@ -13,7 +13,9 @@ async function checkConfigFile(filePath) {
             // Call other functions to read / Execute other Rules.
             fs.readFile(filePath, 'utf-8', (err, data) => {
                 if (err) { core.setFailed(`Error Reading JSON file`) }
-                core.info(data);
+                //core.info(data);
+                ruleset = data.records;
+                core.info(ruleset)
             })
             return true;
         })
