@@ -15,6 +15,12 @@ async function checkConfigFile(filePath) {
                 if (err) { core.setFailed(`Error Reading JSON file`) }
                 ruleset = JSON.parse(data).records;
                 core.info(JSON.stringify(ruleset));
+
+                //Seperate the rules by Category
+                for (const [key, value] of Object.entries(ruleset)) {
+                    core.info(JSON.stringify(key));
+                    core.info(JSON.stringify(value));
+                }
             })
             return true;
         })
@@ -25,6 +31,7 @@ async function checkConfigFile(filePath) {
 }
 
 
+//Main Function
 (
     async() => {
         try {
@@ -76,4 +83,5 @@ async function checkConfigFile(filePath) {
     }
 )*/
 
+//Calling the main function
 ();
