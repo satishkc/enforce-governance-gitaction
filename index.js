@@ -14,8 +14,8 @@ async function checkConfigFile(filePath) {
             fs.readFile(filePath, 'utf-8', (err, data) => {
                 if (err) { core.setFailed(`Error Reading JSON file`) }
                 //core.info(data);
-                ruleset = data.records;
-                core.info(ruleset)
+                ruleset = JSON.parse(data).records;
+                core.info(ruleset);
             })
             return true;
         })
