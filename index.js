@@ -20,24 +20,10 @@ async function checkConfigFile(filePath) {
             fs.readFile(filePath, 'utf-8', (err, data) => {
                 if (err) { core.setFailed(`Error Reading JSON file`) }
                 ruleset = JSON.parse(data).records;
-                //core.info(JSON.stringify(ruleset));
-
+                core.info(JSON.stringify(ruleset));
                 var rs = [];
-                //Seperate the rules by Category
-                for (const [key, value] of Object.entries(ruleset)) {
-                    rs.push(value);
-                    core.info(JSON.stringify(value));
-                    core.info(value.Category);
-
-                }
-                core.info(`This is the new message ${rs.length}`);
-                //core.info(JSON.stringify(rs));
-                for (var i = 0; i < rs.length; i++) {
-                    var tval = rs[i];
-                    //core.info(JSON.stringify(tval.rules));
 
 
-                }
             })
             return true;
         })
