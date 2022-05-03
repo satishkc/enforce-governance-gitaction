@@ -64,12 +64,13 @@ function getflowmeta(value) {
             console.log(file);
             var tstr = file;
             const pb = new DOMParser().parseFromString(tstr);
-            const ispb = pb.getElementsByTagNameNS('start');
-            if (ispb.length > 0) {
+            const ispb = pb.getElementsByTagName("start")[0].hasChildNodes;
+            console.log(ispb);
+            /*if (ispb.length > 0) {
                 console.log('This is a lightning flow');
             } else {
                 console.log('This is a process Builder');
-            }
+            }*/
 
         })
     });
