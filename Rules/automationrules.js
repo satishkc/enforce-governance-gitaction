@@ -64,7 +64,7 @@ function getflowmeta(value) {
             console.log(file);
             var tstr = file;
             const pb = new DOMParser().parseFromString(tstr);
-            const ispb = pb.getElementsByTagName("start");
+            const ispb = pb.getElementsByTagName("start").item(0).firstChild.nodeValue;
             console.log(ispb);
             /*if (ispb.length > 0) {
                 console.log('This is a lightning flow');
