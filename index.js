@@ -21,9 +21,11 @@ async function checkConfigFile(filePath) {
                 if (err) { core.setFailed(`Error Reading JSON file`) }
                 ruleset = JSON.parse(data);
                 core.info(JSON.stringify(ruleset));
-                var rs = [];
 
-
+                for (const [key, value] of Object.entries(ruleset)) {
+                    core.info(`Key is ${key}`);
+                    core.info('Value is ' + JSON.stringify(value));
+                }
             })
             return true;
         })
