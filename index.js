@@ -31,7 +31,9 @@ async function checkConfigFile(filePath) {
                 core.info(JSON.stringify(rs));
                 for (var i = 0; i < rs.length; i++) {
                     var tval = rs[i];
+                    core.info(`These are the rules for ${key} category`);
                     core.info(JSON.stringify(tval.rules));
+
 
                 }
             })
