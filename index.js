@@ -9,8 +9,6 @@ const dataquality = [];
 const automation = [];
 const performance = [];
 
-
-
 //Function to check if a specific File Exists
 async function checkConfigFile(filePath) {
     return fs.promises.access(filePath)
@@ -25,6 +23,25 @@ async function checkConfigFile(filePath) {
                 for (const [key, value] of Object.entries(ruleset)) {
                     core.info(`Key is ${key}`);
                     core.info('Value is ' + JSON.stringify(value));
+                    const tkey = key;
+                    switch (tkey) {
+                        case 'Data Model':
+                            datamodel.push(value);
+                            //Call the Data Model Rules execution function here
+                            datamodelrules();
+                        case 'Data Quality':
+                            dataquality.push(value);
+                            //Call the Data Model Quality execution function here 
+                            dataqualityrules();
+                        case 'Performance':
+                            performance.push(value);
+                            //Call the Performance Rules execution function here 
+                            performancerules();
+                        case 'Automation':
+                            automation.push(value);
+                            //Call the Automation Rules execution function here 
+                            automationrules();
+                    }
                 }
             })
             return true;
@@ -35,12 +52,41 @@ async function checkConfigFile(filePath) {
         })
 }
 
+async function datamodelrules() {
+    if (datamodel.length == 0) {
+        core.setFailed(`There are no Data Model rules enabled for this run`);
+    }
+    core.info(datamodel.length);
+    for (var i = 0; i < datamodel.length; i++) {
+        core.info(datamodel[i].rulename);
+        core.info(datamodel[i].bypass);
+        core.info(datamodel[i].value);
+    }
+    //call the methods from the exported rules in respective folders folders
+    //Append the Results File with details.
+}
+
+async function dataqualityrules(rules) {
+    //call the methods from the exported rules in respective folders folders
+    //Append the Results File with details.
+}
+
+async function performancerules(rules) {
+    //call the methods from the exported rules in respective folders folders
+    //Append the Results File with details.
+}
+
+async function automationrules(rules) {
+    //call the methods from the exported rules in respective folders folders
+    //Append the Results File with details.
+}
 
 //Main Function
 (
     async() => {
         try {
             checkConfigFile("config.json");
+
         } catch (error) {
             core.setFailed(error.message);
         }
