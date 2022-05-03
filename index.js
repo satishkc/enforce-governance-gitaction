@@ -47,7 +47,6 @@ function executerules() {
         core.info('Automation Rules to Execute');
         core.info(JSON.stringify(automation));
         const autoresults = auto.autorules(automation);
-        core.info(autoresults);
     }
 
 
