@@ -1,6 +1,7 @@
 const { deepStrictEqual } = require('assert');
 const fs = require('fs');
 const colors = require('colors');
+const { countReset } = require('console');
 
 function autorules(rules) {
 
@@ -44,7 +45,7 @@ function avoidworkflows(value) {
             console.log('No Workflows Found'.ok);
         }
         files.forEach(file => {
-            console.log('Workflow found Listing them below'.warn);
+            core.info('Workflow found Listing them below'.warn);
             console.log(file);
         })
     });
