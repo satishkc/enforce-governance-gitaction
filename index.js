@@ -2,6 +2,7 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 const fs = require('fs');
 const path = require('path');
+var auto = require('./Rules/automationrules.js');
 
 var ruleset;
 var datamodel;
@@ -18,10 +19,10 @@ async function checkConfigFile(filePath) {
             fs.readFile(filePath, 'utf-8', (err, data) => {
                 if (err) { core.setFailed(`Error Reading JSON file`) }
                 ruleset = JSON.parse(data);
-                core.info('Rule Set is ' + JSON.stringify(ruleset));
-                core.info(JSON.stringify(ruleset.DataModel));
-                core.info(JSON.stringify(ruleset.Automation));
-                core.info(JSON.stringify(ruleset.Performance));
+                //core.info('Rule Set is ' + JSON.stringify(ruleset));
+                //core.info(JSON.stringify(ruleset.DataModel));
+                //core.info(JSON.stringify(ruleset.Automation));
+                //core.info(JSON.stringify(ruleset.Performance));
                 datamodel = ruleset.DataModel;
                 automation = ruleset.Automation;
                 performance = ruleset.Performance;
@@ -37,8 +38,26 @@ async function checkConfigFile(filePath) {
 }
 
 async function executerules() {
-    core.info(automation.length);
-    core.info(JSON.stringify(automation));
+
+
+    //Data Model Rules
+    if (datamodel.length == 0) {
+        core.setFailed(`There is no rules set for execution under Data Model Category`);
+    } else {
+        core.info('Calling Data Model Rules to Execute');
+        core.info(JSON.stringify(datamodel));
+        datamodel(datamodel);
+    }
+
+    //Automation Rules
+    if (datamodel.length == 0) {
+        core.setFailed(`There is no rules set for execution under Data Model Category`);
+    } else {
+        core.info('Automation Rules to Execute');
+        core.info(JSON.stringify(automation));
+        auto(automation);
+    }
+
 
 }
 
