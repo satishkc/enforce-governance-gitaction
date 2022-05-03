@@ -31,7 +31,7 @@ async function checkConfigFile(filePath) {
                 core.info(JSON.stringify(rs));
                 for (var i = 0; i < rs.length; i++) {
                     var tval = rs[i];
-                    core.info(tval.rules);
+                    core.info(JSON.stringify(tval.rules));
 
                 }
             })
