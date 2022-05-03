@@ -38,10 +38,11 @@ function autorules(rules) {
 function avoidworkflows(value) {
     var tpath = "./force-app/main/default/workflows";
     fs.readdir(tpath, (err, files) => {
-        if (files.length == 0) {
-            console.log('No Workflow Found'.ok);
+        if (err) {
+            console.error('No Workflow Found'.notok);
+        } else if (files.length == 0) {
+            console.log('No Workflows Found'.ok);
         }
-        fs.writeFileSync()
         files.forEach(file => {
             console.log(file);
         })
@@ -50,7 +51,7 @@ function avoidworkflows(value) {
 }
 
 colors.setTheme({
-    error: 'red',
+    notok: 'red',
     warn: 'yellow',
     ok: 'green'
 });
