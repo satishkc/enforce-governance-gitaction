@@ -38,7 +38,7 @@ async function checkConfigFile(filePath) {
         })
 }
 
-async function executerules() {
+function executerules() {
 
 
     //Data Model Rules
