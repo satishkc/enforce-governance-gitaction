@@ -18,7 +18,10 @@ async function checkConfigFile(filePath) {
             fs.readFile(filePath, 'utf-8', (err, data) => {
                 if (err) { core.setFailed(`Error Reading JSON file`) }
                 ruleset = JSON.parse(data);
-                core.info(JSON.stringify(ruleset));
+                core.info('Rule Set is ' + JSON.stringify(ruleset));
+                core.info(JSON.stringify(ruleset.DataModel));
+                core.info(JSON.stringify(ruleset.Automation));
+                core.info(JSON.stringify(ruleset.Performance));
 
                 for (const [key, value] of Object.entries(ruleset)) {
                     //core.info(`Key is ${key}`);
@@ -57,8 +60,8 @@ async function datamodelrules() {
         core.setFailed(`There are no Data Model rules enabled for this run`);
     }
     core.info(datamodel.length);
-    core.info(JSON.stringify(datamodel));
-    var tempdm = JSON.parse(datamodel);
+    //core.info(JSON.stringify(datamodel));
+
 
     //call the methods from the exported rules in respective folders folders
     //Append the Results File with details.
