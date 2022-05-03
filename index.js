@@ -47,7 +47,8 @@ async function executerules() {
     } else {
         core.info('Calling Data Model Rules to Execute');
         core.info(JSON.stringify(datamodel));
-        datamodel(datamodel);
+        const dmresult = datamodel.datamodelrules(datamodel);
+        core.info(dmresult);
     }
 
     //Automation Rules
@@ -56,7 +57,8 @@ async function executerules() {
     } else {
         core.info('Automation Rules to Execute');
         core.info(JSON.stringify(automation));
-        auto(automation);
+        const autoresults = auto.autorules(automation);
+        core.info(autoresults);
     }
 
 
