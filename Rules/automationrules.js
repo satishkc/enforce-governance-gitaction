@@ -1,7 +1,7 @@
 const { deepStrictEqual } = require('assert');
 const fs = require('fs');
 const colors = require('colors');
-const { countReset } = require('console');
+
 
 function autorules(rules) {
 
@@ -12,7 +12,7 @@ function autorules(rules) {
     } else {
         for (var i = 0; i < rules.length; i++) {
             //console.log(rules[i]);
-            console.log('Iteration - ' + i);
+            //console.log('Iteration - ' + i);
             var tfunc = rules[i].rulename;
             var tbp = rules[i].bypass;
             var tval = rules[i].value;
@@ -40,7 +40,7 @@ function avoidworkflows(value) {
     var tpath = "./force-app/main/default/workflows";
     fs.readdir(tpath, (err, files) => {
         if (err) {
-            console.error('No Workflow Found'.notok);
+            console.log('No Workflow Found'.ok);
         } else if (files.length == 0) {
             console.log('No Workflows Found'.ok);
         }
