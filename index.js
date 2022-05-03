@@ -4,10 +4,10 @@ const fs = require('fs');
 const path = require('path');
 
 var ruleset;
-var datamodel;
-var dataquality;
-var automation;
-var performance;
+var datamodel = [];
+var dataquality = [];
+var automation = [];
+var performance = [];
 
 //Function to check if a specific File Exists
 async function checkConfigFile(filePath) {
@@ -58,6 +58,7 @@ async function datamodelrules() {
     }
     core.info(datamodel.length);
     core.info(JSON.stringify(datamodel));
+    var tempdm = JSON.parse(datamodel);
 
     //call the methods from the exported rules in respective folders folders
     //Append the Results File with details.
