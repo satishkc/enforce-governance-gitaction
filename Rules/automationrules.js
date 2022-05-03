@@ -13,7 +13,7 @@ function autorules(rules) {
             var tfunc = rules[i].rulename;
             var tbp = rules[i].bypass;
             var tval = rules[i].value;
-            if (tbp == false) {
+            if (tbp == true) {
                 console.log('rule bypassed');
             } else {
                 switch (tfunc) {
