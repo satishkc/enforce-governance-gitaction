@@ -5,4 +5,4 @@ async function autorules(rules) {
 }
 
 
-module.exports(autorules);
+module.exports;
