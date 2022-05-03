@@ -21,8 +21,8 @@ async function checkConfigFile(filePath) {
                 core.info(JSON.stringify(ruleset));
 
                 for (const [key, value] of Object.entries(ruleset)) {
-                    core.info(`Key is ${key}`);
-                    core.info('Value is ' + JSON.stringify(value));
+                    //core.info(`Key is ${key}`);
+                    //core.info('Value is ' + JSON.stringify(value));
                     const tkey = key;
                     switch (tkey) {
                         case 'Data Model':
@@ -58,6 +58,7 @@ async function datamodelrules() {
     }
     core.info(datamodel.length);
     for (var i = 0; i < datamodel.length; i++) {
+        core.info(JSON.stringify(datamodel[i]));
         core.info(datamodel[i].rulename);
         core.info(datamodel[i].bypass);
         core.info(datamodel[i].value);
