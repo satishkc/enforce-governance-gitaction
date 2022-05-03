@@ -20,10 +20,13 @@ function autorules(rules) {
                 switch (tfunc) {
                     case 'Avoid Workflows':
                         avoidworkflows(tval);
+                        break;
                     case 'Avoid Process Builders':
                         console.log('Function yet to come');
+                        break;
                     case 'Flow Hard Coded Ids':
                         console.log('Hardcoded Id Function to arrive soon');
+                        break;
                 }
             }
         }
