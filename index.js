@@ -20,10 +20,6 @@ async function checkConfigFile(filePath) {
             fs.readFile(filePath, 'utf-8', (err, data) => {
                 if (err) { core.setFailed(`Error Reading JSON file`) }
                 ruleset = JSON.parse(data);
-                //core.info('Rule Set is ' + JSON.stringify(ruleset));
-                //core.info(JSON.stringify(ruleset.DataModel));
-                //core.info(JSON.stringify(ruleset.Automation));
-                //core.info(JSON.stringify(ruleset.Performance));
                 datamodel = ruleset.DataModel;
                 automation = ruleset.Automation;
                 performance = ruleset.Performance;
@@ -48,8 +44,9 @@ function executerules() {
         core.info(JSON.stringify(automation));
         const autoresults = auto.autorules(automation);
     }
-
-
+    //Data Model Rules
+    //Performance Rules
+    //Data Quality Rules
 }
 
 //Main Function
