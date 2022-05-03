@@ -4,10 +4,10 @@ const fs = require('fs');
 const path = require('path');
 
 var ruleset;
-const datamodel;
-const dataquality;
-const automation;
-const performance;
+var datamodel;
+var dataquality;
+var automation;
+var performance;
 
 //Function to check if a specific File Exists
 async function checkConfigFile(filePath) {
