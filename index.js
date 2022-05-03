@@ -26,8 +26,9 @@ async function checkConfigFile(filePath) {
                 //Seperate the rules by Category
                 for (const [key, value] of Object.entries(ruleset)) {
                     rs.push(value);
-                    core.info(`These are the rules for ${key} category`);
                     core.info(JSON.stringify(value));
+                    core.info(value.Category);
+
                 }
                 core.info(`This is the new message ${rs.length}`);
                 //core.info(JSON.stringify(rs));
