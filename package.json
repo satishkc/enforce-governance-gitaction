@@ -19,6 +19,7 @@
   "dependencies": {
     "@actions/core": "^1.7.0",
     "@actions/github": "^5.0.1",
+    "colors": "^1.4.0",
     "fs": "^0.0.1-security",
     "path": "^0.12.7"
   }

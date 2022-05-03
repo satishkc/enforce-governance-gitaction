@@ -1,12 +1,13 @@
 const { deepStrictEqual } = require('assert');
 const fs = require('fs');
+const colors = require('colors');
 
 function autorules(rules) {
 
     console.log('This is is from Automation Rules JS');
     //console.log(JSON.stringify(rules));
     if (rules.length == 0 || !rules) {
-        console.error('NO Rules Found');
+        console.error('No Rules Found'.warn);
     } else {
         for (var i = 0; i < rules.length; i++) {
             //console.log(rules[i]);
@@ -15,17 +16,17 @@ function autorules(rules) {
             var tbp = rules[i].bypass;
             var tval = rules[i].value;
             if (tbp == true) {
-                console.log('rule bypassed');
+                console.log('rule bypassed'.ok);
             } else {
                 switch (tfunc) {
                     case 'Avoid Workflows':
                         avoidworkflows(tval);
                         break;
                     case 'Avoid Process Builders':
-                        console.log('Function yet to come');
+                        //console.log('Function yet to come');
                         break;
                     case 'Flow Hard Coded Ids':
-                        console.log('Hardcoded Id Function to arrive soon');
+                        //console.log('Hardcoded Id Function to arrive soon');
                         break;
                 }
             }
@@ -37,11 +38,22 @@ function autorules(rules) {
 function avoidworkflows(value) {
     var tpath = "./force-app/main/default/workflows";
     fs.readdir(tpath, (err, files) => {
+        if (files.length == 0) {
+            console.log('No Workflow Found'.ok);
+        }
+        fs.writeFileSync()
         files.forEach(file => {
             console.log(file);
         })
     });
 
 }
+
+colors.setTheme({
+    error: 'red',
+    warn: 'yellow',
+    ok: 'green'
+});
+
 
 module.exports = { autorules };
