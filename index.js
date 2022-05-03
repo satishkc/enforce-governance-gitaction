@@ -4,10 +4,10 @@ const fs = require('fs');
 const path = require('path');
 
 var ruleset;
-var datamodel = [];
-var dataquality = [];
-var automation = [];
-var performance = [];
+var datamodel;
+var dataquality;
+var automation;
+var performance;
 
 //Function to check if a specific File Exists
 async function checkConfigFile(filePath) {
@@ -22,30 +22,11 @@ async function checkConfigFile(filePath) {
                 core.info(JSON.stringify(ruleset.DataModel));
                 core.info(JSON.stringify(ruleset.Automation));
                 core.info(JSON.stringify(ruleset.Performance));
+                datamodel = ruleset.DataModel;
+                automation = ruleset.Automation;
+                performance = ruleset.Performance;
 
-                for (const [key, value] of Object.entries(ruleset)) {
-                    //core.info(`Key is ${key}`);
-                    //core.info('Value is ' + JSON.stringify(value));
-                    const tkey = key;
-                    switch (tkey) {
-                        case 'Data Model':
-                            datamodel.push(value);
-                            //Call the Data Model Rules execution function here
-                            datamodelrules();
-                        case 'Data Quality':
-                            dataquality.push(value);
-                            //Call the Data Model Quality execution function here 
-                            dataqualityrules();
-                        case 'Performance':
-                            performance.push(value);
-                            //Call the Performance Rules execution function here 
-                            performancerules();
-                        case 'Automation':
-                            automation.push(value);
-                            //Call the Automation Rules execution function here 
-                            automationrules();
-                    }
-                }
+                executerules();
             })
             return true;
         })
@@ -55,31 +36,10 @@ async function checkConfigFile(filePath) {
         })
 }
 
-async function datamodelrules() {
-    if (datamodel.length == 0) {
-        core.setFailed(`There are no Data Model rules enabled for this run`);
-    }
-    core.info(datamodel.length);
-    //core.info(JSON.stringify(datamodel));
+async function executerules() {
+    core.info(automation.length);
+    core.info(JSON.stringify(automation));
 
-
-    //call the methods from the exported rules in respective folders folders
-    //Append the Results File with details.
-}
-
-async function dataqualityrules(rules) {
-    //call the methods from the exported rules in respective folders folders
-    //Append the Results File with details.
-}
-
-async function performancerules(rules) {
-    //call the methods from the exported rules in respective folders folders
-    //Append the Results File with details.
-}
-
-async function automationrules(rules) {
-    //call the methods from the exported rules in respective folders folders
-    //Append the Results File with details.
 }
 
 //Main Function
