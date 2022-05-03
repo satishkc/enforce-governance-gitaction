@@ -4,12 +4,13 @@ const fs = require('fs');
 function autorules(rules) {
 
     console.log('This is is from Automation Rules JS');
-    console.log(JSON.stringify(rules));
+    //console.log(JSON.stringify(rules));
     if (rules.length == 0 || !rules) {
         console.error('NO Rules Found');
     } else {
         for (var i = 0; i < rules.length; i++) {
-            console.log(rules[i]);
+            //console.log(rules[i]);
+            console.log('Iteration - ' + i);
             var tfunc = rules[i].rulename;
             var tbp = rules[i].bypass;
             var tval = rules[i].value;
@@ -32,8 +33,10 @@ function autorules(rules) {
 
 function avoidworkflows(value) {
     var tpath = "./force-app/main/default/workflows";
-    fs.readFile(tpath, 'utf-8', (err, data) => {
-        console.log(data);
+    fs.readdir(tpath, (err, files) => {
+        files.forEach(file => {
+            console.log(file);
+        })
     });
 
 }
