@@ -4,10 +4,10 @@ const fs = require('fs');
 const path = require('path');
 
 var ruleset;
-const datamodel = [];
-const dataquality = [];
-const automation = [];
-const performance = [];
+const datamodel;
+const dataquality;
+const automation;
+const performance;
 
 //Function to check if a specific File Exists
 async function checkConfigFile(filePath) {
@@ -57,12 +57,8 @@ async function datamodelrules() {
         core.setFailed(`There are no Data Model rules enabled for this run`);
     }
     core.info(datamodel.length);
-    for (var i = 0; i < datamodel.length; i++) {
-        core.info(JSON.stringify(datamodel[i]));
-        core.info(datamodel[i].rulename);
-        core.info(datamodel[i].bypass);
-        core.info(datamodel[i].value);
-    }
+    core.info(JSON.stringify(datamodel));
+
     //call the methods from the exported rules in respective folders folders
     //Append the Results File with details.
 }
