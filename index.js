@@ -3,6 +3,7 @@ const github = require('@actions/github');
 const fs = require('fs');
 const path = require('path');
 var auto = require('./Rules/automationrules.js');
+var datamodel = require('./Rules/datamodelrules.js');
 
 var ruleset;
 var datamodel;

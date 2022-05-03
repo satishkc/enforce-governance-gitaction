@@ -5,4 +5,4 @@ async function datamodelrules(rules) {
 }
 
 
-module.exports(datamodelrules);
+module.exports;
