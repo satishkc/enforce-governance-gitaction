@@ -47,6 +47,11 @@ function avoidworkflows(value) {
         files.forEach(file => {
             console.log('Workflow found Listing them below'.warn);
             console.log(file);
+            var fpath = tpath + '/' + file;
+            console.log('File Path - ' + fpath);
+            fs.readFile(fpath, 'utf-8', (err, data) => {
+                console.log(data);
+            })
         })
     });
 
