@@ -45,7 +45,7 @@ function avoidworkflows(value) {
             console.log('No Workflows Found'.ok);
         }
         files.forEach(file => {
-            core.info('Workflow found Listing them below'.warn);
+            console.log('Workflow found Listing them below'.warn);
             console.log(file);
         })
     });
