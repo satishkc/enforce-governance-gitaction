@@ -3,7 +3,7 @@ const github = require('@actions/github');
 const fs = require('fs');
 const path = require('path');
 var auto = require('./Rules/automationrules.js');
-var datamodel = require('./Rules/datamodelrules.js');
+var datamod = require('./Rules/datamodelrules.js');
 
 var ruleset;
 var datamodel;
@@ -40,20 +40,9 @@ async function checkConfigFile(filePath) {
 
 function executerules() {
 
-
-    //Data Model Rules
-    if (datamodel.length == 0) {
-        core.setFailed(`There is no rules set for execution under Data Model Category`);
-    } else {
-        core.info('Calling Data Model Rules to Execute');
-        core.info(JSON.stringify(datamodel));
-        const dmresult = datamodel.datamodelrules(datamodel);
-        core.info(dmresult);
-    }
-
     //Automation Rules
-    if (datamodel.length == 0) {
-        core.setFailed(`There is no rules set for execution under Data Model Category`);
+    if (automation.length == 0) {
+        core.setFailed(`There is no rules set for execution under Automation Category`);
     } else {
         core.info('Automation Rules to Execute');
         core.info(JSON.stringify(automation));
