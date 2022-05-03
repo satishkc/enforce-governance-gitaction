@@ -1,6 +1,7 @@
 const { deepStrictEqual } = require('assert');
 const fs = require('fs');
 const colors = require('colors');
+const { DOMParser } = require('xmldom');
 
 
 function autorules(rules) {
@@ -24,10 +25,10 @@ function autorules(rules) {
                         avoidworkflows(tval);
                         break;
                     case 'Avoid Process Builders':
-                        //console.log('Function yet to come');
-                        break;
+                        //Omit the break here so that both the rules execute the same function.
                     case 'Flow Hard Coded Ids':
                         //console.log('Hardcoded Id Function to arrive soon');
+                        getflowmeta(tval);
                         break;
                 }
             }
@@ -40,21 +41,38 @@ function avoidworkflows(value) {
     var tpath = "./force-app/main/default/workflows";
     fs.readdir(tpath, (err, files) => {
         if (err) {
-            console.log('No Workflow Found'.ok);
+            console.log('No Workflow Found'.ok + err);
         } else if (files.length == 0) {
             console.log('No Workflows Found'.ok);
         }
         files.forEach(file => {
-            console.log('Workflow found Listing them below'.warn);
+            console.warn('Workflow Rules found, Please consider migrating it to Lightning Flows'.warn);
             console.log(file);
-            var fpath = tpath + '/' + file;
-            console.log('File Path - ' + fpath);
-            fs.readFile(fpath, 'utf-8', (err, data) => {
-                console.log(data);
-            })
         })
     });
+}
 
+function getflowmeta(value) {
+    var tpath = "./force-app/main/default/flows";
+    fs.readdir(tpath, (err, files) => {
+        if (err) {
+            console.log('No Flows Found'.ok + err);
+        } else if (files.length == 0) {
+            console.log('No Flows Found'.ok);
+        }
+        files.forEach(file => {
+            console.log(file);
+            var tstr = file;
+            const pb = new DOMParser().parseFromString(tstr);
+            const ispb = pb.getElementsByTagName(start).length;
+            if (ispb > 0) {
+                console.log('This is a lightning flow');
+            } else {
+                console.log('This is a process Builder');
+            }
+
+        })
+    });
 }
 
 colors.setTheme({
