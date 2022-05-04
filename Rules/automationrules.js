@@ -72,6 +72,11 @@ function getflowmeta(value) {
                     const pb = new dom().parseFromString(tstr);
                     const ispb = pb.getElementsByTagName('start')[0];
                     console.log('Start Element details' + ispb);
+                    if (ispb.length > 0) {
+                        console.log(`${file} is a lightning flow`);
+                    } else {
+                        console.log(`${file} is a Process Builder`);
+                    }
 
                 }
             })
