@@ -71,7 +71,7 @@ function getflowmeta(value) {
                     //console.log(tstr);
                     const pb = new dom().parseFromString(tstr);
                     const ispb = pb.getElementsByTagName('start')[0];
-                    console.log('Start Element details' + ispb);
+                    //console.log('Start Element details' + ispb);
                     if (ispb != undefined) {
                         console.log(`${file} is a lightning flow`);
                     } else {
