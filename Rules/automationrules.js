@@ -62,15 +62,20 @@ function getflowmeta(value) {
         }
         files.forEach(file => {
             //console.log(file);
-            var tstr = file.toString();
-            console.log(tstr);
-            const pb = new dom().parseFromString(tstr);
-            var nodes = xpath.select("start", pb);
-            //console.log(nodes);
-            nodes.forEach(node => {
-                console.log('Inner Node Name' + node.toString());
+            fs.readFile(file, 'utf-8', (err, data) => {
+                if (err) {
+                    console.error(err);
+                } else {
+                    var tstr = data.toString();
+                    console.log(tstr);
+                    const pb = new dom().parseFromString(tstr);
+                    var nodes = xpath.select("start", pb);
+                    //console.log(nodes);
+                    nodes.forEach(node => {
+                        console.log('Inner Node Name' + node.toString());
+                    })
+                }
             })
-
 
             /*const ispb = pb.getElementsByTagName('start');
             //console.log(ispb);
