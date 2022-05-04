@@ -71,8 +71,8 @@ function getflowmeta(value) {
                     //console.log(tstr);
                     const pb = new dom().parseFromString(tstr);
                     const ispb = pb.getElementsByTagName('start')[0];
-                    //console.log(ispb);
-                    const st = ispb.getElementsByTagName('start')[0].children.length;
+                    console.log('Start Element details' + ispb);
+
                 }
             })
 
