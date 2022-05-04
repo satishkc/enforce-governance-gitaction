@@ -101,11 +101,12 @@ function getflowmeta(value) {
                         }
                         pblist._prd(pbl);
                     }
-                    console.log("List of Process Builders" + pblist);
-                    console.log("List of Lightning Flows" + lflist);
                 }
             })
         })
+
+        console.log("List of Process Builders" + pblist);
+        console.log("List of Lightning Flows" + lflist);
     });
 }
 
