@@ -64,17 +64,15 @@ function getflowmeta(value) {
             console.log(file);
             var tstr = file;
             const pb = new DOMParser().parseFromString(tstr, "application/xml");
-            const ispb = pb.getElementsByTagName("start");
+            const ispb = pb.getElementsById("Flow").textContent;
             console.log(ispb);
+            var st = pb.getElementById('start');
+            console.log(st);
             /*if (ispb.length > 0) {
                 console.log('This is a lightning flow');
             } else {
                 console.log('This is a process Builder');
             }*/
-
-            const tpb = DOMParser.toString(tstr);
-            console.log(tpb);
-
 
         })
     });
