@@ -70,11 +70,8 @@ function getflowmeta(value) {
                     var tstr = data.toString();
                     //console.log(tstr);
                     const pb = new dom().parseFromString(tstr);
-                    var nodes = xpath.select("//start", pb);
-                    //console.log(nodes);
-                    nodes.forEach(node => {
-                        console.log('Inner Node Name' + node.toString());
-                    })
+                    const ispb = pb.getElementsByName('start');
+                    console.log(ispb);
                 }
             })
 
