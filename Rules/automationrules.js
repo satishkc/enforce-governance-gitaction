@@ -66,11 +66,11 @@ function getflowmeta(value) {
             const pb = new DOMParser().parseFromString(tstr);
             const ispb = pb.getElementsByTagName('start');
             console.log(ispb);
-            /*if (ispb.length > 0) {
+            if (ispb.length > 0) {
                 console.log('This is a lightning flow');
             } else {
                 console.log('This is a process Builder');
-            }*/
+            }
 
         })
     });
