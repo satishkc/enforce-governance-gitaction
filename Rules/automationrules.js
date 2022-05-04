@@ -105,8 +105,8 @@ function getflowmeta(value) {
             })
         })
 
-        console.log("List of Process Builders" + pblist);
-        console.log("List of Lightning Flows" + lflist);
+        console.log("List of Process Builders" + JSON.stringify(pblist));
+        console.log("List of Lightning Flows" + JSON.stringify(lflist));
     });
 }
 
