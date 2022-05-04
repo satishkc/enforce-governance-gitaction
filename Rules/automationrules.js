@@ -1,8 +1,8 @@
 const { deepStrictEqual } = require('assert');
 const fs = require('fs');
 const colors = require('colors');
-const { DOMParser } = (require('xmldom')).DOMParser;
-
+const dom = require('xmldom').DOMParser;
+const xpath = require('xpath');
 
 function autorules(rules) {
 
@@ -63,14 +63,19 @@ function getflowmeta(value) {
         files.forEach(file => {
             console.log(file);
             var tstr = file;
-            const pb = DOMParser.parseFromString(tstr);
-            const ispb = pb.getElementsByTagName('start');
+            const pb = new dom().parseFromString(tstr);
+            var nodes = xpath.select("//start", doc);
+            console.log(nodes[0].localname);
+            console.log(nodes[0].toString());
+
+
+            /*const ispb = pb.getElementsByTagName('start');
             //console.log(ispb);
             if (ispb.length > 0) {
                 console.log('This is a lightning flow');
             } else {
                 console.log('This is a process Builder');
-            }
+            }*/
 
         })
     });
