@@ -56,16 +56,17 @@ function getflowmeta(value) {
     var tpath = "./force-app/main/default/flows";
     var pblist = [];
     var lflist = [];
-
-    pblist._prd = function(el) {
-        if (this.indexOf(el) == -1) this.push(el)
-        else return;
-    }
-
-    lflist._prd = function(el) {
-        if (this.indexOf(el) == -1) this.push(el)
-        else return;
-    }
+    /* 
+        //Push and Duplicate Array Function
+        pblist._prd = function(el) {
+            if (this.indexOf(el) == -1) this.push(el)
+            else return;
+        }
+        //Push and Duplicate Array Function
+        lflist._prd = function(el) {
+            if (this.indexOf(el) == -1) this.push(el)
+            else return;
+        } */
     fs.readdir(tpath, (err, files) => {
         if (err) {
             console.log('No Flows Found'.ok + err);
@@ -87,21 +88,21 @@ function getflowmeta(value) {
                     if (ispb != undefined) {
                         //console.log(`${file} is a lightning flow`);
                         var lfl = {
-                            "name": file,
-                            "path": fpath,
-                            "type": "Lightning Flow"
-                        }
-                        console.log('Lightning flow List' + lfl);
-                        lflist._prd(lfl);
+                                "name": file,
+                                "path": fpath,
+                                "type": "Lightning Flow"
+                            }
+                            //console.log('Lightning flow List' + lfl);
+                        lflist.push(lfl);
                     } else {
                         //console.log(`${file} is a Process Builder`);
                         var pbl = {
-                            "name": file,
-                            "path": fpath,
-                            "type": "Process Builder"
-                        }
-                        console.log('Process Builder' + pbl);
-                        pblist._prd(pbl);
+                                "name": file,
+                                "path": fpath,
+                                "type": "Process Builder"
+                            }
+                            //console.log('Process Builder' + pbl);
+                        pblist.push(pbl);
                     }
                 }
             })
