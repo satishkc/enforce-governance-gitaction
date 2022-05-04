@@ -88,20 +88,20 @@ function getflowmeta(value) {
                     if (ispb != undefined) {
                         //console.log(`${file} is a lightning flow`);
                         var lfl = {
-                                "name": file,
-                                "path": fpath,
-                                "type": "Lightning Flow"
-                            }
-                            //console.log('Lightning flow List' + lfl);
+                            "name": file,
+                            "path": fpath,
+                            "type": "Lightning Flow"
+                        }
+                        console.log('Lightning flow List' + JSON.stringify(lfl));
                         lflist.push(lfl);
                     } else {
                         //console.log(`${file} is a Process Builder`);
                         var pbl = {
-                                "name": file,
-                                "path": fpath,
-                                "type": "Process Builder"
-                            }
-                            //console.log('Process Builder' + pbl);
+                            "name": file,
+                            "path": fpath,
+                            "type": "Process Builder"
+                        }
+                        console.log('Process Builder' + JSON.stringify(pbl));
                         pblist.push(pbl);
                     }
                 }
