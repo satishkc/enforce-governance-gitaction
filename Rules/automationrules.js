@@ -62,7 +62,8 @@ function getflowmeta(value) {
         }
         files.forEach(file => {
             //console.log(file);
-            fs.readFile(file, 'utf-8', (err, data) => {
+            var fpath = tpath + '/' + file;
+            fs.readFile(fpath, 'utf-8', (err, data) => {
                 if (err) {
                     console.error(err);
                 } else {
