@@ -64,7 +64,7 @@ function getflowmeta(value) {
             console.log(file);
             var tstr = file;
             const pb = new dom().parseFromString(tstr);
-            var nodes = xpath.select("//start", doc);
+            var nodes = xpath.select("//start", pb);
             console.log(nodes[0].localname);
             console.log(nodes[0].toString());
 
