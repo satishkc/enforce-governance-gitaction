@@ -54,6 +54,18 @@ function avoidworkflows(value) {
 
 function getflowmeta(value) {
     var tpath = "./force-app/main/default/flows";
+    var pblist = [];
+    var lflist = [];
+
+    pblist._prd = function(el) {
+        if (this.indexOf(el) == -1) this.push(el)
+        else return;
+    }
+
+    lflist._prd = function(el) {
+        if (this.indexOf(el) == -1) this.push(el)
+        else return;
+    }
     fs.readdir(tpath, (err, files) => {
         if (err) {
             console.log('No Flows Found'.ok + err);
@@ -74,15 +86,29 @@ function getflowmeta(value) {
                     //console.log('Start Element details' + ispb);
                     if (ispb != undefined) {
                         console.log(`${file} is a lightning flow`);
+                        var lfl = {
+                            "name": file,
+                            "path": fpath,
+                            "type": "Lightning Flow"
+                        }
+                        lflist._prd(lfl);
                     } else {
                         console.log(`${file} is a Process Builder`);
+                        var pbl = {
+                            "name": file,
+                            "path": fpath,
+                            "type": "Process Builder"
+                        }
+                        pblist._prd(pbl);
                     }
-
+                    console.log("List of Process Builders" + pblist);
+                    console.log("List of Lightning Flows" + lflist);
                 }
             })
         })
     });
 }
+
 
 colors.setTheme({
     notok: 'red',
