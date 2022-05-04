@@ -85,29 +85,31 @@ function getflowmeta(value) {
                     const ispb = pb.getElementsByTagName('start')[0];
                     //console.log('Start Element details' + ispb);
                     if (ispb != undefined) {
-                        console.log(`${file} is a lightning flow`);
+                        //console.log(`${file} is a lightning flow`);
                         var lfl = {
                             "name": file,
                             "path": fpath,
                             "type": "Lightning Flow"
                         }
+                        console.log('Lightning flow List' + lfl);
                         lflist._prd(lfl);
                     } else {
-                        console.log(`${file} is a Process Builder`);
+                        //console.log(`${file} is a Process Builder`);
                         var pbl = {
                             "name": file,
                             "path": fpath,
                             "type": "Process Builder"
                         }
+                        console.log('Process Builder' + pbl);
                         pblist._prd(pbl);
                     }
                 }
             })
         })
-
-        console.log("List of Process Builders" + JSON.stringify(pblist));
-        console.log("List of Lightning Flows" + JSON.stringify(lflist));
     });
+
+    console.log("List of Process Builders" + JSON.stringify(pblist));
+    console.log("List of Lightning Flows" + JSON.stringify(lflist));
 }
 
 
