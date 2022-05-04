@@ -1,7 +1,7 @@
 const { deepStrictEqual } = require('assert');
 const fs = require('fs');
 const colors = require('colors');
-const { DOMParser } = require('xmldom');
+const { DOMParser } = (require('xmldom')).DOMParser;
 
 
 function autorules(rules) {
@@ -63,7 +63,7 @@ function getflowmeta(value) {
         files.forEach(file => {
             console.log(file);
             var tstr = file;
-            const pb = new DOMParser.parseFromString(tstr);
+            const pb = DOMParser.parseFromString(tstr);
             const ispb = pb.getElementsByTagName('start');
             //console.log(ispb);
             if (ispb.length > 0) {
