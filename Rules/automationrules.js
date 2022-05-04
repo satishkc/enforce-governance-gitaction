@@ -65,8 +65,9 @@ function getflowmeta(value) {
             var tstr = file;
             const pb = new dom().parseFromString(tstr);
             var nodes = xpath.select("//start", pb);
-            //console.log(nodes[0].localname);
-            console.log(nodes[0]);
+            nodes.forEach(node => {
+                console.log(node.toString());
+            })
 
 
             /*const ispb = pb.getElementsByTagName('start');
