@@ -84,8 +84,9 @@ function getflowmeta(value) {
                     //console.log(tstr);
                     const pb = new dom().parseFromString(tstr);
                     const ispb = pb.getElementsByTagName('start')[0];
+                    const ukpb = pb.getElementsByTagName('startElementReference')[0];
                     //console.log('Start Element details' + ispb);
-                    if (ispb != undefined) {
+                    if (ispb != undefined || ukpb != undefined) {
                         //console.log(`${file} is a lightning flow`);
                         var lfl = {
                             "name": file,
@@ -94,6 +95,8 @@ function getflowmeta(value) {
                         }
                         console.log('Lightning flow List' + JSON.stringify(lfl));
                         lflist.push(lfl);
+                    } else if (ukpb !== undefined) {
+                        console.log('This is a different type of Flow');
                     } else {
                         //console.log(`${file} is a Process Builder`);
                         var pbl = {
