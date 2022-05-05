@@ -96,6 +96,7 @@ function getflowmeta(value) {
                         }
                         console.log('Lightning flow List' + JSON.stringify(lfl));
                         lflist.push(lfl);
+                        console.log(lflist);
                     } else {
                         //console.log(`${file} is a Process Builder`);
                         if (ukpb != undefined) {
@@ -108,6 +109,7 @@ function getflowmeta(value) {
                         }
                         console.log('Process Builder' + JSON.stringify(pbl));
                         pblist.push(pbl);
+                        console.log(pblist);
                     }
                 }
             })
