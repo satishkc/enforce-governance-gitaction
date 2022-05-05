@@ -95,10 +95,11 @@ function getflowmeta(value) {
                         }
                         console.log('Lightning flow List' + JSON.stringify(lfl));
                         lflist.push(lfl);
-                    } else if (ukpb !== undefined) {
-                        console.log('This is a different type of Flow');
                     } else {
                         //console.log(`${file} is a Process Builder`);
+                        if (ukpb != undefined) {
+                            console.log('This is a different type of flow');
+                        }
                         var pbl = {
                             "name": file,
                             "path": fpath,
