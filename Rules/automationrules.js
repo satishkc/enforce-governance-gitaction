@@ -4,6 +4,9 @@ const colors = require('colors');
 const dom = require('xmldom').DOMParser;
 const xpath = require('xpath');
 
+const pblist = [];
+const lflist = [];
+
 function autorules(rules) {
 
     console.log('This is is from Automation Rules JS');
@@ -55,8 +58,8 @@ function avoidworkflows(value) {
 
 function getflowmeta(value) {
     var tpath = "./force-app/main/default/flows";
-    var pblist = [];
-    var lflist = [];
+    //var pblist = [];
+    //var lflist = [];
     /* 
         //Push and Duplicate Array Function
         pblist._prd = function(el) {
@@ -113,7 +116,7 @@ function getflowmeta(value) {
             });
         })
     });
-
+    console.log('List of Process Builders' + JSON.stringify(pblist));
 }
 
 
