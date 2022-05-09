@@ -102,7 +102,8 @@ function getflowmeta(value) {
                     } else {
                         //console.log(`${file} is a Process Builder`);
                         if (ukpb != undefined) {
-                            console.log('This is a different type of flow');
+                            console.log('This is a different type of flow' + file);
+
                         }
                         var pbl = {
                             "name": file,
@@ -116,7 +117,6 @@ function getflowmeta(value) {
             });
         })
     });
-    console.log('List of Process Builders' + JSON.stringify(pblist));
 }
 
 
