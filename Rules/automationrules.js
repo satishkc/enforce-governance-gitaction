@@ -101,15 +101,16 @@ function getflowmeta(value) {
                         lflist.push(lfl);
                     } else {
                         //console.log(`${file} is a Process Builder`);
-                        if (ukpb == undefined) {
-                            console.log('This is a different type of flow' + file);
+                        console.log(`File name ${file} & Start Element Reference is ${ukpb}`);
+                        if (ukpb === undefined) {
+                            //console.log('This is a different type of flow' + file);
                         }
                         var pbl = {
-                            "name": file,
-                            "path": fpath,
-                            "type": "Process Builder"
-                        }
-                        console.log('Process Builder' + JSON.stringify(pbl));
+                                "name": file,
+                                "path": fpath,
+                                "type": "Process Builder"
+                            }
+                            //console.log('Process Builder' + JSON.stringify(pbl));
                         pblist.push(pbl);
                     }
                 }
