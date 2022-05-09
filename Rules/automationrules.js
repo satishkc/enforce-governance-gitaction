@@ -101,7 +101,7 @@ function getflowmeta(value) {
                         lflist.push(lfl);
                     } else {
                         //console.log(`${file} is a Process Builder`);
-                        if (ukpb != undefined) {
+                        if (ukpb == undefined) {
                             console.log('This is a different type of flow' + file);
                         }
                         var pbl = {
