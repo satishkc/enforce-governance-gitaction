@@ -103,7 +103,6 @@ function getflowmeta(value) {
                         //console.log(`${file} is a Process Builder`);
                         if (ukpb != undefined) {
                             console.log('This is a different type of flow' + file);
-
                         }
                         var pbl = {
                             "name": file,
